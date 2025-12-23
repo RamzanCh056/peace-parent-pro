@@ -1,9 +1,40 @@
-import { Smartphone } from "lucide-react";
-import appMockup from "@/assets/app-mockup.png";
+import { Smartphone, Star } from "lucide-react";
+import appProgress from "@/assets/app-progress.png";
+
+const PhoneFrame = ({ image, alt }: { image: string; alt: string }) => (
+  <div className="relative">
+    {/* Phone frame */}
+    <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
+      {/* Notch */}
+      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-b-2xl z-20" />
+      
+      {/* Screen bezel */}
+      <div className="relative bg-black rounded-[2.5rem] overflow-hidden">
+        {/* Screen content */}
+        <img 
+          src={image} 
+          alt={alt}
+          className="w-full h-full object-cover rounded-[2.5rem]"
+        />
+      </div>
+      
+      {/* Side buttons */}
+      <div className="absolute -left-1 top-28 w-1 h-12 bg-gray-700 rounded-l" />
+      <div className="absolute -left-1 top-44 w-1 h-20 bg-gray-700 rounded-l" />
+      <div className="absolute -right-1 top-36 w-1 h-14 bg-gray-700 rounded-r" />
+    </div>
+    
+    {/* Reflection effect */}
+    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent rounded-[3rem] pointer-events-none" />
+    
+    {/* Bottom glow */}
+    <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-16 bg-primary/30 blur-2xl rounded-full" />
+  </div>
+);
 
 const DownloadSection = () => {
   return (
-    <section className="py-20 lg:py-32 bg-background relative overflow-hidden">
+    <section id="download" className="py-20 lg:py-32 bg-background relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-96 h-96 bg-lavender/30 rounded-full blur-3xl" />
@@ -11,7 +42,7 @@ const DownloadSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content */}
           <div className="text-center lg:text-left space-y-8">
             <div className="inline-flex items-center gap-2 bg-peach px-4 py-2 rounded-full text-peach-foreground text-sm font-medium">
@@ -29,6 +60,17 @@ const DownloadSection = () => {
               Join thousands of parents who are discovering the joy of calm, 
               confident parenting. Your family deserves it.
             </p>
+
+            {/* Rating */}
+            <div className="flex items-center gap-2 justify-center lg:justify-start">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-gold text-gold" />
+                ))}
+              </div>
+              <span className="font-semibold text-foreground">4.9</span>
+              <span className="text-muted-foreground">• 10K+ Reviews</span>
+            </div>
 
             {/* App Store Badges */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -71,21 +113,17 @@ const DownloadSection = () => {
             </div>
           </div>
 
-          {/* App Mockup */}
+          {/* App Mockup with premium frame */}
           <div className="relative flex justify-center lg:justify-end">
             <div className="relative animate-float">
-              <img
-                src={appMockup}
-                alt="Be A Better Parent App"
-                className="w-72 md:w-80 lg:w-96 drop-shadow-2xl"
+              <PhoneFrame 
+                image={appProgress} 
+                alt="Be A Better Parent App - Progress Tracking"
               />
-              
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent blur-2xl -z-10 scale-110" />
             </div>
 
             {/* Floating notification cards */}
-            <div className="absolute top-10 -left-4 lg:left-0 bg-card rounded-2xl p-4 shadow-float animate-float hidden sm:flex items-center gap-3">
+            <div className="absolute top-10 -left-4 lg:left-0 bg-card rounded-2xl p-4 shadow-float animate-float hidden sm:flex items-center gap-3 border border-border/50">
               <div className="w-10 h-10 rounded-xl bg-mint flex items-center justify-center text-xl">
                 ✨
               </div>
@@ -95,13 +133,23 @@ const DownloadSection = () => {
               </div>
             </div>
 
-            <div className="absolute bottom-20 -right-4 lg:right-0 bg-card rounded-2xl p-4 shadow-float animate-float-slow hidden sm:flex items-center gap-3">
+            <div className="absolute bottom-32 -right-4 lg:right-0 bg-card rounded-2xl p-4 shadow-float animate-float-slow hidden sm:flex items-center gap-3 border border-border/50">
               <div className="w-10 h-10 rounded-xl bg-lavender flex items-center justify-center text-xl">
                 🎯
               </div>
               <div>
                 <p className="text-sm font-semibold text-foreground">Goal achieved!</p>
                 <p className="text-xs text-muted-foreground">Keep it up</p>
+              </div>
+            </div>
+
+            <div className="absolute top-1/2 -left-8 lg:-left-4 bg-card rounded-2xl p-4 shadow-float animate-float hidden lg:flex items-center gap-3 border border-border/50">
+              <div className="w-10 h-10 rounded-xl bg-peach flex items-center justify-center text-xl">
+                🐧
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-foreground">Pebbles says:</p>
+                <p className="text-xs text-muted-foreground">"You're doing great!"</p>
               </div>
             </div>
           </div>

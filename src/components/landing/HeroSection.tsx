@@ -1,6 +1,7 @@
 import { Play, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroFamily from "@/assets/hero-family.jpg";
+import appDashboard from "@/assets/app-dashboard.png";
 
 const HeroSection = () => {
   return (
@@ -90,20 +91,39 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Hero Image */}
-          <div className="relative animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-            <div className="relative z-10 rounded-3xl overflow-hidden shadow-float">
-              <img
-                src={heroFamily}
-                alt="Happy family enjoying quality time together"
-                className="w-full h-auto object-cover"
-              />
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent" />
+          {/* Hero Phone Mockup */}
+          <div className="relative animate-fade-in-up flex justify-center" style={{ animationDelay: "0.3s" }}>
+            {/* Phone frame */}
+            <div className="relative">
+              <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
+                {/* Notch */}
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-b-2xl z-20" />
+                
+                {/* Screen bezel */}
+                <div className="relative bg-black rounded-[2.5rem] overflow-hidden w-64 sm:w-72 lg:w-80">
+                  {/* Screen content */}
+                  <img 
+                    src={appDashboard} 
+                    alt="Be A Better Parent App Dashboard"
+                    className="w-full h-auto object-cover rounded-[2.5rem]"
+                  />
+                </div>
+                
+                {/* Side buttons */}
+                <div className="absolute -left-1 top-28 w-1 h-12 bg-gray-700 rounded-l" />
+                <div className="absolute -left-1 top-44 w-1 h-20 bg-gray-700 rounded-l" />
+                <div className="absolute -right-1 top-36 w-1 h-14 bg-gray-700 rounded-r" />
+              </div>
+              
+              {/* Reflection effect */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent rounded-[3rem] pointer-events-none" />
+              
+              {/* Bottom glow */}
+              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-16 bg-primary/30 blur-2xl rounded-full" />
             </div>
             
             {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 bg-card rounded-2xl p-4 shadow-card animate-float hidden lg:block">
+            <div className="absolute -top-4 -right-4 lg:right-0 bg-card rounded-2xl p-4 shadow-card animate-float hidden lg:block border border-border/50">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-xl bg-mint flex items-center justify-center">
                   <span className="text-2xl">💚</span>
@@ -115,7 +135,7 @@ const HeroSection = () => {
               </div>
             </div>
             
-            <div className="absolute -bottom-4 -left-4 bg-card rounded-2xl p-4 shadow-card animate-float-slow hidden lg:block">
+            <div className="absolute -bottom-4 -left-4 lg:left-0 bg-card rounded-2xl p-4 shadow-card animate-float-slow hidden lg:block border border-border/50">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-xl bg-lavender flex items-center justify-center">
                   <span className="text-2xl">🎯</span>
@@ -123,6 +143,18 @@ const HeroSection = () => {
                 <div>
                   <p className="text-sm font-semibold text-foreground">Expert Advice</p>
                   <p className="text-xs text-muted-foreground">Personalized for you</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute top-1/2 -right-8 lg:-right-4 bg-card rounded-2xl p-4 shadow-card animate-float hidden sm:block border border-border/50">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-peach flex items-center justify-center">
+                  <span className="text-2xl">🐧</span>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">Pebbles says:</p>
+                  <p className="text-xs text-muted-foreground italic">"You're doing great!"</p>
                 </div>
               </div>
             </div>
