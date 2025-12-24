@@ -1,8 +1,10 @@
-import appDashboard from "@/assets/app-dashboard.png";
 import appPodcast from "@/assets/app-podcast.png";
 import appBooks from "@/assets/app-books.png";
 import appProgress from "@/assets/app-progress.png";
 import appVideos from "@/assets/app-videos.png";
+import counselingSession from "@/assets/counseling-session.jpg";
+import parentChildBonding from "@/assets/parent-child-bonding.jpg";
+import familySupport from "@/assets/family-support.jpg";
 
 const PhoneFrame = ({ image, alt, className = "", variant = "default" }: { image: string; alt: string; className?: string; variant?: "default" | "hero" | "small" }) => {
   const isHero = variant === "hero";
@@ -45,11 +47,16 @@ const PhoneFrame = ({ image, alt, className = "", variant = "default" }: { image
 
 const AppShowcaseSection = () => {
   const screenshots = [
-    { image: appDashboard, alt: "App Dashboard", label: "Dashboard" },
     { image: appProgress, alt: "Progress Tracking", label: "Track Progress" },
     { image: appPodcast, alt: "Parenting Podcasts", label: "Podcasts" },
     { image: appBooks, alt: "Parenting Books", label: "Books" },
     { image: appVideos, alt: "Video Categories", label: "Videos" },
+  ];
+
+  const counselingImages = [
+    { image: counselingSession, alt: "Professional Parent Counseling", title: "Expert Counseling", description: "One-on-one guidance from parenting experts" },
+    { image: parentChildBonding, alt: "Parent Child Bonding", title: "Stronger Bonds", description: "Build lasting connections with your children" },
+    { image: familySupport, alt: "Family Support", title: "Family Support", description: "Comprehensive support for the whole family" },
   ];
 
   return (
@@ -62,7 +69,52 @@ const AppShowcaseSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
+        {/* Counseling Gallery Section */}
+        <div className="mb-24">
+          <div className="text-center mb-12 space-y-4">
+            <div className="inline-flex items-center gap-2 bg-lavender/30 px-4 py-2 rounded-full text-primary text-sm font-medium">
+              <span className="text-lg">💜</span>
+              Parent Counseling
+            </div>
+            
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
+              Professional{" "}
+              <span className="text-primary">Parenting Support</span>
+            </h2>
+            
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Connect with expert counselors who understand your parenting journey and help you build stronger family relationships.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {counselingImages.map((item, index) => (
+              <div 
+                key={index}
+                className="group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.alt}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-background">
+                  <h3 className="font-heading text-xl font-bold mb-1">{item.title}</h3>
+                  <p className="text-background/80 text-sm">{item.description}</p>
+                </div>
+                {/* Hover glow */}
+                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* App Screenshots Section */}
         <div className="text-center mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-primary text-sm font-medium">
             <span className="text-lg">📱</span>
@@ -115,7 +167,7 @@ const AppShowcaseSection = () => {
           </div>
         </div>
 
-        {/* Secondary showcase - all 5 screens in a row */}
+        {/* Secondary showcase - 4 screens in a row */}
         <div className="relative">
           <div className="flex gap-4 md:gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide justify-start md:justify-center px-4">
             {screenshots.map((screenshot, index) => (
