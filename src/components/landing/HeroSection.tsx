@@ -4,16 +4,27 @@ import heroCounseling from "@/assets/hero-counseling.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen gradient-hero overflow-hidden pt-20">
+    <section className="relative min-h-screen overflow-hidden pt-20">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={heroCounseling} 
+          alt="Parent counseling background"
+          className="w-full h-full object-cover"
+        />
+        {/* Gradient overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background/80" />
+      </div>
+      
       {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-peach/30 rounded-full blur-3xl animate-float-slow" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-mint/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-peach/20 rounded-full blur-3xl animate-float-slow" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-5rem)] py-12">
+        <div className="flex items-center min-h-[calc(100vh-5rem)] py-12">
           {/* Content */}
           <div className="text-center lg:text-left space-y-8">
             <div className="space-y-6">
@@ -90,30 +101,9 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Hero Counseling Image */}
-          <div className="relative animate-fade-in-up flex justify-center" style={{ animationDelay: "0.3s" }}>
-            <div className="relative">
-              {/* Main image container */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-md lg:max-w-lg">
-                <img 
-                  src={heroCounseling} 
-                  alt="Parent counseling session with happy family"
-                  className="w-full h-auto object-cover"
-                />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent pointer-events-none" />
-              </div>
-              
-              {/* Decorative frame */}
-              <div className="absolute -inset-3 border-2 border-primary/20 rounded-[2rem] -z-10" />
-              <div className="absolute -inset-6 border border-lavender/30 rounded-[2.5rem] -z-20" />
-              
-              {/* Bottom glow */}
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-16 bg-primary/30 blur-2xl rounded-full" />
-            </div>
-            
-            {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 lg:right-0 bg-card rounded-2xl p-4 shadow-card animate-float hidden lg:block border border-border/50">
+          {/* Floating elements - now positioned on the right side */}
+          <div className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 space-y-6 animate-fade-in-up z-20" style={{ animationDelay: "0.5s" }}>
+            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-4 shadow-card animate-float border border-border/50">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-xl bg-mint flex items-center justify-center">
                   <span className="text-2xl">💚</span>
@@ -125,19 +115,7 @@ const HeroSection = () => {
               </div>
             </div>
             
-            <div className="absolute -bottom-4 -left-4 lg:left-0 bg-card rounded-2xl p-4 shadow-card animate-float-slow hidden lg:block border border-border/50">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-lavender flex items-center justify-center">
-                  <span className="text-2xl">🎯</span>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Expert Advice</p>
-                  <p className="text-xs text-muted-foreground">Personalized for you</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute top-1/2 -right-8 lg:-right-4 bg-card rounded-2xl p-4 shadow-card animate-float hidden sm:block border border-border/50">
+            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-4 shadow-card animate-float-slow border border-border/50">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-xl bg-peach flex items-center justify-center">
                   <span className="text-2xl">🐧</span>
@@ -145,6 +123,18 @@ const HeroSection = () => {
                 <div>
                   <p className="text-sm font-semibold text-foreground">Pebbles says:</p>
                   <p className="text-xs text-muted-foreground italic">"You're doing great!"</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-4 shadow-card animate-float border border-border/50">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-lavender flex items-center justify-center">
+                  <span className="text-2xl">🎯</span>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">Expert Advice</p>
+                  <p className="text-xs text-muted-foreground">Personalized for you</p>
                 </div>
               </div>
             </div>
