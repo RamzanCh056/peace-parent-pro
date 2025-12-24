@@ -3,32 +3,35 @@ import appProgress from "@/assets/app-progress.png";
 
 const PhoneFrame = ({ image, alt }: { image: string; alt: string }) => (
   <div className="relative">
-    {/* Phone frame */}
-    <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
-      {/* Notch */}
-      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-b-2xl z-20" />
-      
-      {/* Screen bezel */}
-      <div className="relative bg-black rounded-[2.5rem] overflow-hidden">
-        {/* Screen content */}
-        <img 
-          src={image} 
-          alt={alt}
-          className="w-full h-full object-cover rounded-[2.5rem]"
-        />
+    {/* Outer shadow glow */}
+    <div className="absolute inset-0 bg-mint/30 rounded-[3rem] blur-2xl transform translate-y-6 scale-90" />
+    
+    {/* Phone frame - premium dark bezel */}
+    <div className="relative bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900 rounded-[2.75rem] p-2.5 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.4)]">
+      {/* Top speaker/notch area */}
+      <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-24 h-7 bg-slate-900 rounded-b-2xl z-20 flex items-center justify-center">
+        <div className="w-12 h-1.5 bg-slate-800 rounded-full" />
       </div>
       
-      {/* Side buttons */}
-      <div className="absolute -left-1 top-28 w-1 h-12 bg-gray-700 rounded-l" />
-      <div className="absolute -left-1 top-44 w-1 h-20 bg-gray-700 rounded-l" />
-      <div className="absolute -right-1 top-36 w-1 h-14 bg-gray-700 rounded-r" />
+      {/* Inner bezel frame */}
+      <div className="relative bg-slate-900 rounded-[2.25rem] p-1">
+        {/* Screen with subtle inner shadow */}
+        <div className="relative rounded-[2rem] overflow-hidden shadow-inner">
+          <img 
+            src={image} 
+            alt={alt}
+            className="w-full h-auto object-cover rounded-[2rem]"
+          />
+          {/* Screen glass reflection */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
+        </div>
+      </div>
+      
+      {/* Side buttons - refined */}
+      <div className="absolute -left-0.5 top-24 w-0.5 h-8 bg-slate-600 rounded-l" />
+      <div className="absolute -left-0.5 top-36 w-0.5 h-12 bg-slate-600 rounded-l" />
+      <div className="absolute -right-0.5 top-32 w-0.5 h-10 bg-slate-600 rounded-r" />
     </div>
-    
-    {/* Reflection effect */}
-    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent rounded-[3rem] pointer-events-none" />
-    
-    {/* Bottom glow */}
-    <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-16 bg-primary/30 blur-2xl rounded-full" />
   </div>
 );
 
