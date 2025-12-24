@@ -1,7 +1,6 @@
 import { Play, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroFamily from "@/assets/hero-family.jpg";
-import appDashboard from "@/assets/app-dashboard.png";
+import heroCounseling from "@/assets/hero-counseling.jpg";
 
 const HeroSection = () => {
   return (
@@ -91,32 +90,23 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Hero Phone Mockup */}
+          {/* Hero Counseling Image */}
           <div className="relative animate-fade-in-up flex justify-center" style={{ animationDelay: "0.3s" }}>
-            {/* Phone frame */}
             <div className="relative">
-              <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
-                {/* Notch */}
-                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-b-2xl z-20" />
-                
-                {/* Screen bezel */}
-                <div className="relative bg-black rounded-[2.5rem] overflow-hidden w-64 sm:w-72 lg:w-80">
-                  {/* Screen content */}
-                  <img 
-                    src={appDashboard} 
-                    alt="Be A Better Parent App Dashboard"
-                    className="w-full h-auto object-cover rounded-[2.5rem]"
-                  />
-                </div>
-                
-                {/* Side buttons */}
-                <div className="absolute -left-1 top-28 w-1 h-12 bg-gray-700 rounded-l" />
-                <div className="absolute -left-1 top-44 w-1 h-20 bg-gray-700 rounded-l" />
-                <div className="absolute -right-1 top-36 w-1 h-14 bg-gray-700 rounded-r" />
+              {/* Main image container */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-md lg:max-w-lg">
+                <img 
+                  src={heroCounseling} 
+                  alt="Parent counseling session with happy family"
+                  className="w-full h-auto object-cover"
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent pointer-events-none" />
               </div>
               
-              {/* Reflection effect */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent rounded-[3rem] pointer-events-none" />
+              {/* Decorative frame */}
+              <div className="absolute -inset-3 border-2 border-primary/20 rounded-[2rem] -z-10" />
+              <div className="absolute -inset-6 border border-lavender/30 rounded-[2.5rem] -z-20" />
               
               {/* Bottom glow */}
               <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-16 bg-primary/30 blur-2xl rounded-full" />
