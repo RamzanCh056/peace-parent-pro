@@ -1,20 +1,22 @@
 import { Play, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroCounseling from "@/assets/hero-counseling.jpg";
+import heroFamily from "@/assets/hero-family.jpg";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden pt-20">
-      {/* Background Image */}
+      {/* Background Image - Full HD */}
       <div className="absolute inset-0">
         <img 
-          src={heroCounseling} 
-          alt="Parent counseling background"
-          className="w-full h-full object-cover"
+          src={heroFamily} 
+          alt="Happy mother and child bonding moment"
+          className="w-full h-full object-cover object-center scale-105"
+          loading="eager"
         />
-        {/* Gradient overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background/80" />
+        {/* Enhanced gradient overlay for perfect text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/98 via-background/85 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent" />
       </div>
       
       {/* Background decorative elements */}
