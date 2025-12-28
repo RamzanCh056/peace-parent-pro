@@ -1,77 +1,48 @@
-import { Smartphone, Star } from "lucide-react";
-import appProgress from "@/assets/app-progress.png";
-
-const PhoneFrame = ({ image, alt }: { image: string; alt: string }) => (
-  <div className="relative">
-    {/* Outer shadow glow */}
-    <div className="absolute inset-0 bg-mint/30 rounded-[3rem] blur-2xl transform translate-y-6 scale-90" />
-    
-    {/* Phone frame - premium dark bezel */}
-    <div className="relative bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900 rounded-[2.75rem] p-2.5 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.4)]">
-      {/* Top speaker/notch area */}
-      <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-24 h-7 bg-slate-900 rounded-b-2xl z-20 flex items-center justify-center">
-        <div className="w-12 h-1.5 bg-slate-800 rounded-full" />
-      </div>
-      
-      {/* Inner bezel frame */}
-      <div className="relative bg-slate-900 rounded-[2.25rem] p-1">
-        {/* Screen with subtle inner shadow */}
-        <div className="relative rounded-[2rem] overflow-hidden shadow-inner">
-          <img 
-            src={image} 
-            alt={alt}
-            className="w-full h-auto object-cover rounded-[2rem]"
-          />
-          {/* Screen glass reflection */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
-        </div>
-      </div>
-      
-      {/* Side buttons - refined */}
-      <div className="absolute -left-0.5 top-24 w-0.5 h-8 bg-slate-600 rounded-l" />
-      <div className="absolute -left-0.5 top-36 w-0.5 h-12 bg-slate-600 rounded-l" />
-      <div className="absolute -right-0.5 top-32 w-0.5 h-10 bg-slate-600 rounded-r" />
-    </div>
-  </div>
-);
+import { Smartphone, Star, Heart, Sparkles, Download } from "lucide-react";
+import happyFamily from "@/assets/happy-family-download.jpg";
 
 const DownloadSection = () => {
   return (
-    <section id="download" className="py-20 lg:py-32 bg-background relative overflow-hidden">
+    <section id="download" className="py-20 lg:py-32 bg-gradient-to-b from-background via-lavender/10 to-background relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-lavender/30 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-mint/30 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-peach/20 rounded-full blur-3xl" />
+        <Heart className="absolute top-20 right-1/4 w-8 h-8 text-primary/15 animate-pulse" />
+        <Sparkles className="absolute bottom-32 left-1/4 w-6 h-6 text-cta/20 animate-bounce" style={{ animationDelay: '0.5s' }} />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content */}
           <div className="text-center lg:text-left space-y-8">
-            <div className="inline-flex items-center gap-2 bg-peach px-4 py-2 rounded-full text-peach-foreground text-sm font-medium">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-peach to-peach/50 px-5 py-2.5 rounded-full text-peach-foreground text-sm font-semibold shadow-soft">
               <Smartphone className="w-4 h-4" />
               Available on iOS & Android
             </div>
 
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
               Download{" "}
-              <span className="text-primary">Be A Better Parent</span>{" "}
+              <span className="bg-gradient-to-r from-primary to-cta bg-clip-text text-transparent">
+                Be A Better Parent
+              </span>{" "}
               Now!
             </h2>
 
-            <p className="text-lg text-muted-foreground max-w-lg">
+            <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
               Join thousands of parents who are discovering the joy of calm, 
               confident parenting. Your family deserves it.
             </p>
 
             {/* Rating */}
-            <div className="flex items-center gap-2 justify-center lg:justify-start">
+            <div className="flex items-center gap-3 justify-center lg:justify-start">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-gold text-gold" />
                 ))}
               </div>
-              <span className="font-semibold text-foreground">4.9</span>
+              <span className="font-bold text-foreground text-lg">4.9</span>
               <span className="text-muted-foreground">• 10K+ Reviews</span>
             </div>
 
@@ -100,35 +71,52 @@ const DownloadSection = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
-              <div className="text-center lg:text-left">
-                <p className="font-heading text-3xl font-bold text-foreground">50K+</p>
-                <p className="text-sm text-muted-foreground">Happy Parents</p>
-              </div>
-              <div className="text-center lg:text-left">
-                <p className="font-heading text-3xl font-bold text-foreground">4.9</p>
-                <p className="text-sm text-muted-foreground">App Rating</p>
-              </div>
-              <div className="text-center lg:text-left">
-                <p className="font-heading text-3xl font-bold text-foreground">24/7</p>
-                <p className="text-sm text-muted-foreground">Support</p>
-              </div>
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border/50">
+              {[
+                { number: "50K+", label: "Happy Parents", icon: Heart },
+                { number: "4.9", label: "App Rating", icon: Star },
+                { number: "24/7", label: "Support", icon: Sparkles },
+              ].map((stat, index) => (
+                <div key={index} className="text-center lg:text-left group">
+                  <div className="flex items-center gap-2 justify-center lg:justify-start mb-1">
+                    <stat.icon className="w-4 h-4 text-cta group-hover:scale-110 transition-transform" />
+                    <p className="font-heading text-2xl lg:text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+                      {stat.number}
+                    </p>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* App Mockup with premium frame */}
+          {/* Beautiful Family Image */}
           <div className="relative flex justify-center lg:justify-end">
-            <div className="relative animate-float">
-              <PhoneFrame 
-                image={appProgress} 
-                alt="Be A Better Parent App - Progress Tracking"
-              />
+            {/* Decorative frame */}
+            <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-cta/15 to-peach/20 rounded-[3rem] blur-2xl opacity-60" />
+            
+            <div className="relative group">
+              {/* Main image container */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-card/50 group-hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] transition-all duration-500">
+                <img 
+                  src={happyFamily} 
+                  alt="Happy family enjoying time together"
+                  className="w-full h-auto max-w-md object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                {/* Gradient overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+              
+              {/* Corner accent */}
+              <div className="absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br from-cta to-cta-hover rounded-2xl flex items-center justify-center shadow-cta rotate-12 group-hover:rotate-0 transition-transform duration-300">
+                <Heart className="w-8 h-8 text-cta-foreground fill-current" />
+              </div>
             </div>
 
             {/* Floating notification cards */}
-            <div className="absolute top-10 -left-4 lg:left-0 bg-card rounded-2xl p-4 shadow-float animate-float hidden sm:flex items-center gap-3 border border-border/50">
-              <div className="w-10 h-10 rounded-xl bg-mint flex items-center justify-center text-xl">
-                ✨
+            <div className="absolute top-6 -left-4 lg:left-0 bg-card/95 backdrop-blur-sm rounded-2xl p-4 shadow-float hidden sm:flex items-center gap-3 border border-border/50 hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-mint to-accent flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-primary-foreground" />
               </div>
               <div>
                 <p className="text-sm font-semibold text-foreground">New tip available!</p>
@@ -136,23 +124,23 @@ const DownloadSection = () => {
               </div>
             </div>
 
-            <div className="absolute bottom-32 -right-4 lg:right-0 bg-card rounded-2xl p-4 shadow-float animate-float-slow hidden sm:flex items-center gap-3 border border-border/50">
-              <div className="w-10 h-10 rounded-xl bg-lavender flex items-center justify-center text-xl">
-                🎯
+            <div className="absolute bottom-12 -right-4 lg:right-0 bg-card/95 backdrop-blur-sm rounded-2xl p-4 shadow-float hidden sm:flex items-center gap-3 border border-border/50 hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-lavender to-primary flex items-center justify-center">
+                <Download className="w-5 h-5 text-primary-foreground" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-foreground">Goal achieved!</p>
-                <p className="text-xs text-muted-foreground">Keep it up</p>
+                <p className="text-sm font-semibold text-foreground">Get the app!</p>
+                <p className="text-xs text-muted-foreground">Free download</p>
               </div>
             </div>
 
-            <div className="absolute top-1/2 -left-8 lg:-left-4 bg-card rounded-2xl p-4 shadow-float animate-float hidden lg:flex items-center gap-3 border border-border/50">
-              <div className="w-10 h-10 rounded-xl bg-peach flex items-center justify-center text-xl">
-                🐧
+            <div className="absolute bottom-1/2 -left-8 lg:-left-6 bg-card/95 backdrop-blur-sm rounded-2xl p-4 shadow-float hidden lg:flex items-center gap-3 border border-border/50 hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-peach to-cta flex items-center justify-center">
+                <Heart className="w-5 h-5 text-primary-foreground fill-current" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-foreground">Pebbles says:</p>
-                <p className="text-xs text-muted-foreground">"You're doing great!"</p>
+                <p className="text-sm font-semibold text-foreground">Family first</p>
+                <p className="text-xs text-muted-foreground">You're doing great!</p>
               </div>
             </div>
           </div>
