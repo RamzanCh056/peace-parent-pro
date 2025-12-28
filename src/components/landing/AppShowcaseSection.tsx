@@ -1,56 +1,34 @@
-import appPodcast from "@/assets/app-podcast.png";
-import appBooks from "@/assets/app-books.png";
-import appProgress from "@/assets/app-progress.png";
-import appVideos from "@/assets/app-videos.png";
+import { BookOpen, Headphones, Video, TrendingUp, Sparkles, Heart, Star } from "lucide-react";
 import counselingSession from "@/assets/counseling-session.jpg";
 import parentChildBonding from "@/assets/parent-child-bonding.jpg";
 import familySupport from "@/assets/family-support.jpg";
 
-const PhoneFrame = ({ image, alt, className = "", variant = "default" }: { image: string; alt: string; className?: string; variant?: "default" | "hero" | "small" }) => {
-  const isHero = variant === "hero";
-  const isSmall = variant === "small";
-  
-  return (
-    <div className={`relative ${className}`}>
-      {/* Outer shadow glow */}
-      <div className={`absolute inset-0 ${isHero ? 'bg-primary/20' : 'bg-slate-400/20'} rounded-[3rem] blur-xl transform translate-y-4`} />
-      
-      {/* Phone frame - premium dark bezel */}
-      <div className={`relative bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900 ${isSmall ? 'rounded-[2rem] p-1.5' : 'rounded-[2.5rem] p-2'} shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]`}>
-        {/* Top speaker/notch area */}
-        <div className={`absolute ${isSmall ? 'top-1.5 w-16 h-5' : 'top-2 w-20 h-6'} left-1/2 -translate-x-1/2 bg-slate-900 rounded-b-2xl z-20 flex items-center justify-center`}>
-          <div className={`${isSmall ? 'w-8 h-1' : 'w-10 h-1.5'} bg-slate-800 rounded-full`} />
-        </div>
-        
-        {/* Inner bezel frame */}
-        <div className={`relative bg-slate-900 ${isSmall ? 'rounded-[1.75rem] p-0.5' : 'rounded-[2rem] p-1'}`}>
-          {/* Screen with subtle inner shadow */}
-          <div className={`relative ${isSmall ? 'rounded-[1.5rem]' : 'rounded-[1.75rem]'} overflow-hidden shadow-inner`}>
-            <img 
-              src={image} 
-              alt={alt}
-              className={`w-full h-auto object-cover ${isSmall ? 'rounded-[1.5rem]' : 'rounded-[1.75rem]'}`}
-            />
-            {/* Screen glass reflection */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
-          </div>
-        </div>
-        
-        {/* Side buttons - more refined */}
-        <div className={`absolute -left-0.5 ${isSmall ? 'top-16' : 'top-20'} w-0.5 h-6 bg-slate-600 rounded-l`} />
-        <div className={`absolute -left-0.5 ${isSmall ? 'top-28' : 'top-32'} w-0.5 h-10 bg-slate-600 rounded-l`} />
-        <div className={`absolute -right-0.5 ${isSmall ? 'top-24' : 'top-28'} w-0.5 h-8 bg-slate-600 rounded-r`} />
-      </div>
-    </div>
-  );
-};
-
 const AppShowcaseSection = () => {
-  const screenshots = [
-    { image: appProgress, alt: "Progress Tracking", label: "Track Progress" },
-    { image: appPodcast, alt: "Parenting Podcasts", label: "Podcasts" },
-    { image: appBooks, alt: "Parenting Books", label: "Books" },
-    { image: appVideos, alt: "Video Categories", label: "Videos" },
+  const features = [
+    { 
+      icon: Headphones, 
+      label: "Expert Podcasts", 
+      description: "Learn on the go with expert advice",
+      color: "from-primary to-lavender"
+    },
+    { 
+      icon: BookOpen, 
+      label: "Curated Books", 
+      description: "Parenting guides for every stage",
+      color: "from-mint to-accent"
+    },
+    { 
+      icon: Video, 
+      label: "Video Library", 
+      description: "Visual guidance and tutorials",
+      color: "from-peach to-cta"
+    },
+    { 
+      icon: TrendingUp, 
+      label: "Progress Tracking", 
+      description: "See your growth as a parent",
+      color: "from-gentle-blue to-primary"
+    },
   ];
 
   const counselingImages = [
@@ -60,29 +38,36 @@ const AppShowcaseSection = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-b from-mint/20 to-background relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-lavender/20 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-peach/10 rounded-full blur-3xl" />
+    <section className="py-20 lg:py-32 bg-gradient-to-b from-mint/20 via-background to-lavender/10 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-40 left-10 w-56 h-56 bg-peach/15 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-1/4 w-32 h-32 bg-mint/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
+        
+        {/* Floating decorative elements */}
+        <Sparkles className="absolute top-32 left-1/4 w-8 h-8 text-cta/30 animate-bounce" style={{ animationDelay: '0.5s' }} />
+        <Heart className="absolute bottom-48 right-1/3 w-6 h-6 text-primary/25 animate-bounce" style={{ animationDelay: '1.2s' }} />
+        <Star className="absolute top-1/3 right-20 w-5 h-5 text-gold/30 animate-pulse" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Counseling Gallery Section */}
-        <div className="mb-24">
-          <div className="text-center mb-12 space-y-4">
-            <div className="inline-flex items-center gap-2 bg-lavender/30 px-4 py-2 rounded-full text-primary text-sm font-medium">
-              <span className="text-lg">💜</span>
+        <div className="mb-28">
+          <div className="text-center mb-14 space-y-4">
+            <div className="inline-flex items-center gap-2 bg-lavender/40 px-5 py-2.5 rounded-full text-primary text-sm font-semibold shadow-soft">
+              <Heart className="w-4 h-4 fill-current" />
               Parent Counseling
             </div>
             
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
               Professional{" "}
-              <span className="text-primary">Parenting Support</span>
+              <span className="bg-gradient-to-r from-primary to-cta bg-clip-text text-transparent">
+                Parenting Support
+              </span>
             </h2>
             
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Connect with expert counselors who understand your parenting journey and help you build stronger family relationships.
             </p>
           </div>
@@ -91,7 +76,7 @@ const AppShowcaseSection = () => {
             {counselingImages.map((item, index) => (
               <div 
                 key={index}
-                className="group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500"
+                className="group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2"
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img 
@@ -100,118 +85,90 @@ const AppShowcaseSection = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
                 {/* Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-background">
-                  <h3 className="font-heading text-xl font-bold mb-1">{item.title}</h3>
-                  <p className="text-background/80 text-sm">{item.description}</p>
+                  <h3 className="font-heading text-xl font-bold mb-2">{item.title}</h3>
+                  <p className="text-background/85 text-sm">{item.description}</p>
                 </div>
-                {/* Hover glow */}
-                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Hover glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Corner accent */}
+                <div className="absolute top-4 right-4 w-10 h-10 bg-cta/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-300 shadow-lg">
+                  <Heart className="w-5 h-5 text-cta-foreground fill-current" />
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* App Screenshots Section */}
+        {/* App Features Section - New attractive design */}
         <div className="text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-primary text-sm font-medium">
-            <span className="text-lg">📱</span>
-            App Preview
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-cta/20 px-5 py-2.5 rounded-full text-primary text-sm font-semibold shadow-soft">
+            <Sparkles className="w-4 h-4" />
+            App Features
           </div>
           
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
             Everything You Need,{" "}
-            <span className="text-primary">In One App</span>
+            <span className="bg-gradient-to-r from-primary via-cta to-peach bg-clip-text text-transparent">
+              In One App
+            </span>
           </h2>
           
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Explore podcasts, books, videos, and track your parenting journey - all designed to help you become a calmer, more confident parent.
           </p>
         </div>
 
-        {/* Main showcase - 3 featured phones */}
-        <div className="flex justify-center items-end gap-4 md:gap-8 lg:gap-12 mb-16">
-          {/* Left phone */}
-          <div className="hidden md:block transform hover:-translate-y-4 transition-all duration-500 hover:scale-105">
-            <PhoneFrame 
-              image={appPodcast} 
-              alt="Parenting Podcasts"
-              className="w-44 lg:w-52"
-              variant="small"
-            />
-            <p className="text-center mt-6 font-semibold text-foreground text-lg">Podcasts</p>
-          </div>
-          
-          {/* Center phone - hero */}
-          <div className="transform hover:-translate-y-4 transition-all duration-500 z-10">
-            <PhoneFrame 
-              image={appProgress} 
-              alt="Progress Tracking"
-              className="w-52 sm:w-60 lg:w-72"
-              variant="hero"
-            />
-            <p className="text-center mt-6 font-bold text-foreground text-xl">Track Progress</p>
-          </div>
-          
-          {/* Right phone */}
-          <div className="hidden md:block transform hover:-translate-y-4 transition-all duration-500 hover:scale-105">
-            <PhoneFrame 
-              image={appBooks} 
-              alt="Parenting Books"
-              className="w-44 lg:w-52"
-              variant="small"
-            />
-            <p className="text-center mt-6 font-semibold text-foreground text-lg">Books</p>
-          </div>
-        </div>
-
-        {/* Secondary showcase - 4 screens in a row */}
-        <div className="relative">
-          <div className="flex gap-4 md:gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide justify-start md:justify-center px-4">
-            {screenshots.map((screenshot, index) => (
-              <div 
-                key={index}
-                className="flex-shrink-0 snap-center group"
-              >
-                <div className="relative transform group-hover:-translate-y-3 transition-all duration-300">
-                  <PhoneFrame 
-                    image={screenshot.image} 
-                    alt={screenshot.alt}
-                    className="w-36 sm:w-40 lg:w-48"
-                    variant="small"
-                  />
-                  
-                  {/* Glow effect on hover */}
-                  <div className="absolute inset-0 bg-primary/15 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10 scale-90" />
-                </div>
-                
-                <p className="text-center mt-4 font-semibold text-foreground group-hover:text-primary transition-colors text-base">
-                  {screenshot.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Feature highlights */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-          {[
-            { icon: "🎧", label: "Expert Podcasts", description: "Listen on the go" },
-            { icon: "📚", label: "Curated Books", description: "Learn at your pace" },
-            { icon: "🎬", label: "Video Library", description: "Visual guidance" },
-            { icon: "📊", label: "Progress Tracking", description: "See your growth" },
-          ].map((feature, index) => (
+        {/* Feature Cards - Beautiful grid design */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {features.map((feature, index) => (
             <div 
               key={index}
-              className="text-center p-6 bg-card/50 rounded-2xl backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all group"
+              className="group relative bg-card/80 backdrop-blur-sm rounded-3xl p-8 border border-border/50 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden"
             >
-              <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">
-                {feature.icon}
+              {/* Background gradient on hover */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+              
+              {/* Icon container */}
+              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                <feature.icon className="w-8 h-8 text-primary-foreground" />
               </div>
-              <h3 className="font-semibold text-foreground">{feature.label}</h3>
-              <p className="text-sm text-muted-foreground">{feature.description}</p>
+              
+              <h3 className="font-heading text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                {feature.label}
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {feature.description}
+              </p>
+              
+              {/* Decorative corner */}
+              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-br from-transparent to-primary/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+          ))}
+        </div>
+
+        {/* Stats Section */}
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { number: "50K+", label: "Happy Parents", icon: Heart },
+            { number: "500+", label: "Expert Sessions", icon: Video },
+            { number: "100+", label: "Parenting Books", icon: BookOpen },
+            { number: "4.9", label: "App Store Rating", icon: Star },
+          ].map((stat, index) => (
+            <div 
+              key={index}
+              className="text-center p-6 bg-gradient-to-br from-card to-card/50 rounded-2xl border border-border/30 hover:border-primary/30 transition-all duration-300 group"
+            >
+              <div className="flex items-center justify-center mb-3">
+                <stat.icon className="w-6 h-6 text-cta group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="font-heading text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary to-cta bg-clip-text text-transparent mb-1">
+                {stat.number}
+              </div>
+              <p className="text-sm text-muted-foreground">{stat.label}</p>
             </div>
           ))}
         </div>

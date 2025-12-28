@@ -2,6 +2,8 @@ import Header from "@/components/landing/Header";
 import HeroSection from "@/components/landing/HeroSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
+import BooksSection from "@/components/landing/BooksSection";
+import VideoTestimonialSection from "@/components/landing/VideoTestimonialSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import PricingSection from "@/components/landing/PricingSection";
 import AppShowcaseSection from "@/components/landing/AppShowcaseSection";
@@ -17,7 +19,9 @@ const Index = () => {
         <HeroSection />
         <FeaturesSection />
         <HowItWorksSection />
+        <BooksSection />
         <AppShowcaseSection />
+        <VideoTestimonialSection />
         <TestimonialsSection />
         <PricingSection />
         <DownloadSection />
