@@ -1,5 +1,9 @@
 import { BookOpen, Star, ArrowRight, Sparkles, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import bookToddlers from "@/assets/book-toddlers.jpg";
+import bookPlaybook1 from "@/assets/book-playbook1.jpg";
+import bookPlaybook2 from "@/assets/book-playbook2.jpg";
+import bookPlaybook3 from "@/assets/book-playbook3.jpg";
 
 const books = [
   {
@@ -10,6 +14,7 @@ const books = [
     reviews: 2847,
     badge: "Bestseller",
     color: "from-primary to-lavender",
+    image: bookToddlers,
   },
   {
     title: "The Parenting Playbook Vol. 1",
@@ -19,6 +24,7 @@ const books = [
     reviews: 1923,
     badge: "New",
     color: "from-cta to-peach",
+    image: bookPlaybook1,
   },
   {
     title: "The Parenting Playbook Vol. 2",
@@ -28,6 +34,7 @@ const books = [
     reviews: 1456,
     badge: "Popular",
     color: "from-mint to-gentle-blue",
+    image: bookPlaybook2,
   },
   {
     title: "The Parenting Playbook Vol. 3",
@@ -37,6 +44,7 @@ const books = [
     reviews: 987,
     badge: null,
     color: "from-peach to-cta",
+    image: bookPlaybook3,
   },
 ];
 
@@ -133,19 +141,18 @@ const BooksSection = () => {
               key={index}
               className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
             >
-              {/* Book Cover Placeholder */}
-              <div className={`h-48 bg-gradient-to-br ${book.color} relative overflow-hidden`}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <BookOpen className="w-16 h-16 text-primary-foreground/50" />
-                </div>
-                {/* Decorative pattern */}
-                <div className="absolute inset-0 opacity-20">
-                  <div className="absolute top-4 right-4 w-20 h-20 border-2 border-primary-foreground/30 rounded-full" />
-                  <div className="absolute bottom-4 left-4 w-12 h-12 border border-primary-foreground/20 rounded-lg rotate-12" />
-                </div>
+              {/* Book Cover Image */}
+              <div className="h-56 relative overflow-hidden">
+                <img 
+                  src={book.image} 
+                  alt={book.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                {/* Gradient overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-t ${book.color} opacity-20 group-hover:opacity-30 transition-opacity`} />
                 {/* Badge */}
                 {book.badge && (
-                  <div className="absolute top-4 left-4 bg-cta text-cta-foreground px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                  <div className="absolute top-4 left-4 bg-cta text-cta-foreground px-3 py-1.5 rounded-full text-xs font-bold shadow-lg">
                     {book.badge}
                   </div>
                 )}
