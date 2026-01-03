@@ -1,15 +1,15 @@
 import Header from "@/components/landing/Header";
-import HeroSection from "@/components/landing/HeroSection";
+import PricingSection from "@/components/landing/PricingSection";
 import DownloadSection from "@/components/landing/DownloadSection";
 import Footer from "@/components/landing/Footer";
 import FloatingChat from "@/components/landing/FloatingChat";
 
-const Index = () => {
+const Pricing = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main>
-        <HeroSection />
+      <main className="pt-20">
+        <PricingSection />
         <DownloadSection />
       </main>
       <Footer />
@@ -18,4 +18,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Pricing;
