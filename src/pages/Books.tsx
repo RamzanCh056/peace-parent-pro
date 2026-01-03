@@ -1,16 +1,14 @@
 import Header from "@/components/landing/Header";
-import HeroSection from "@/components/landing/HeroSection";
-import DownloadSection from "@/components/landing/DownloadSection";
+import BooksSection from "@/components/landing/BooksSection";
 import Footer from "@/components/landing/Footer";
 import FloatingChat from "@/components/landing/FloatingChat";
 
-const Index = () => {
+const Books = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main>
-        <HeroSection />
-        <DownloadSection />
+      <main className="pt-20">
+        <BooksSection />
       </main>
       <Footer />
       <FloatingChat />
@@ -18,4 +16,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Books;
