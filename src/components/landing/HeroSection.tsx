@@ -1,4 +1,4 @@
-import { Play, Download } from "lucide-react";
+import { Play, Download, Heart, Users, BookOpen, Headphones } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroFamily from "@/assets/hero-family.jpg";
 
@@ -23,24 +23,30 @@ const HeroSection = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-peach/20 rounded-full blur-3xl animate-float-slow" />
+        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-mint/15 rounded-full blur-2xl animate-float" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex items-center min-h-[calc(100vh-5rem)] py-12">
           {/* Content */}
-          <div className="text-center lg:text-left space-y-8">
+          <div className="max-w-2xl text-center lg:text-left space-y-8">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 bg-lavender px-4 py-2 rounded-full text-lavender-foreground text-sm font-medium animate-fade-in-up">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse-soft" />
                 Your Partner in Parenting
               </div>
               
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                 Parenting is easier with a{" "}
-                <span className="text-primary">helping hand.</span>
+                <span className="text-primary relative">
+                  helping hand.
+                  <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 8" fill="none">
+                    <path d="M2 6C50 2 150 2 198 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="text-cta"/>
+                  </svg>
+                </span>
               </h1>
               
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 animate-fade-in-up leading-relaxed" style={{ animationDelay: "0.2s" }}>
                 Find peace, confidence, and cooperation with Be A Better Parent – 
                 Your partner in raising happy, healthy children.
               </p>
@@ -48,7 +54,7 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-              <Button variant="hero" size="xl" className="group">
+              <Button variant="hero" size="xl" className="group shadow-cta">
                 <Download className="w-5 h-5 group-hover:animate-bounce-gentle" />
                 Get Started Free
               </Button>
@@ -103,40 +109,40 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Floating elements - now positioned on the right side */}
-          <div className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 space-y-6 animate-fade-in-up z-20" style={{ animationDelay: "0.5s" }}>
-            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-4 shadow-card animate-float border border-border/50">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-mint flex items-center justify-center">
-                  <span className="text-2xl">💚</span>
+          {/* Floating elements - positioned on the top right */}
+          <div className="hidden lg:flex flex-col absolute right-8 xl:right-16 top-32 space-y-5 animate-fade-in-up z-20" style={{ animationDelay: "0.5s" }}>
+            <div className="bg-card/95 backdrop-blur-md rounded-2xl p-5 shadow-float border border-border/50 hover:scale-105 transition-all duration-300 hover:shadow-xl">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-xl bg-mint flex items-center justify-center shadow-soft">
+                  <Heart className="w-7 h-7 text-mint-foreground" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-foreground">Calm Tips</p>
-                  <p className="text-xs text-muted-foreground">Available 24/7</p>
+                  <p className="text-base font-semibold text-foreground">Calm Tips</p>
+                  <p className="text-sm text-muted-foreground">Available 24/7</p>
                 </div>
               </div>
             </div>
             
-            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-4 shadow-card animate-float-slow border border-border/50">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-peach flex items-center justify-center">
+            <div className="bg-card/95 backdrop-blur-md rounded-2xl p-5 shadow-float border border-border/50 hover:scale-105 transition-all duration-300 hover:shadow-xl ml-4">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-xl bg-peach flex items-center justify-center shadow-soft">
                   <span className="text-2xl">🐧</span>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-foreground">Pebbles says:</p>
-                  <p className="text-xs text-muted-foreground italic">"You're doing great!"</p>
+                  <p className="text-base font-semibold text-foreground">Pebbles says:</p>
+                  <p className="text-sm text-muted-foreground italic">"You're doing great!"</p>
                 </div>
               </div>
             </div>
             
-            <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-4 shadow-card animate-float border border-border/50">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-lavender flex items-center justify-center">
+            <div className="bg-card/95 backdrop-blur-md rounded-2xl p-5 shadow-float border border-border/50 hover:scale-105 transition-all duration-300 hover:shadow-xl">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-xl bg-lavender flex items-center justify-center shadow-soft">
                   <span className="text-2xl">🎯</span>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-foreground">Expert Advice</p>
-                  <p className="text-xs text-muted-foreground">Personalized for you</p>
+                  <p className="text-base font-semibold text-foreground">Expert Advice</p>
+                  <p className="text-sm text-muted-foreground">Personalized for you</p>
                 </div>
               </div>
             </div>
