@@ -1,5 +1,7 @@
 import Header from "@/components/landing/Header";
 import HeroSection from "@/components/landing/HeroSection";
+import WhyChooseSection from "@/components/landing/WhyChooseSection";
+import AppPreviewSection from "@/components/landing/AppPreviewSection";
 import ConsistencyShowcase from "@/components/landing/ConsistencyShowcase";
 import DownloadSection from "@/components/landing/DownloadSection";
 import Footer from "@/components/landing/Footer";
@@ -11,6 +13,8 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
+        <WhyChooseSection />
+        <AppPreviewSection />
         <ConsistencyShowcase />
         <DownloadSection />
       </main>
